@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const error = require('../../../utils/error');
-const User = require('../../user/model/User');
+const User = require('../model/User');
 
 module.exports = async (data) => {
     let user = await User.findOne({email: data.email});

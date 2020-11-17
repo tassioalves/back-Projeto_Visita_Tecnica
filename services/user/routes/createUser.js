@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const {check, validationResult} = require('express-validator');
 const createUser = require('../business/createUser');
 const error = require('../../../utils/error');
@@ -20,10 +20,10 @@ router.post('/', validations, async (request, response) => {
         response
             .status(200)
             .send();
-    } catch (error) {
+    } catch (e) {
         response
             .status(400)
-            .json(error);
+            .json(e);
     }
 });
 

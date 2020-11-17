@@ -1,7 +1,8 @@
-const authenticateUser = require('./authenticateUser');
 const createUser = require('./createUser');
+const authenticateUser = require('./authenticateUser');
+
 
 module.exports = {
-    authenticateUser,
-    createUser
+    createUser,
+    authenticateUser
 };

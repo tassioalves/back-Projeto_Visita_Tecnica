@@ -1,5 +1,5 @@
 {
-  "serverPort": "5000",
+  "serverPort": "6000",
   "mongoURI": "mongodb://visitaTecnica:cgnk53267@cluster0-shard-00-00.towme.mongodb.net:27017,cluster0-shard-00-01.towme.mongodb.net:27017,cluster0-shard-00-02.towme.mongodb.net:27017/ifms-visitaTecnica?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
   "jwtSecret": "ChavesFoiParaAcapuco",
   "cryptoJSSecret": "ESoUmaGripizinha"
