@@ -2,7 +2,7 @@ const createUser = require('./createUser');
 const authenticateUser = require('./authenticateUser');
 
 
-module.exports = {
+module.exports = [
     createUser,
     authenticateUser
-};
+];

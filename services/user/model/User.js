@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const role = require('../enum/role');
 
 const schema = new mongoose.Schema({
-    nome: {
+    name: {
         type: String,
         required: true
     },
@@ -34,4 +34,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = User = mongoose.model('', schema)
+module.exports = User = mongoose.model('user', schema);

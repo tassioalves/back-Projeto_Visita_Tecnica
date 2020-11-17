@@ -6,11 +6,11 @@ const error = require('../../../utils/error');
 
 const validations = [
     check('email').isEmail(),
-    check('password').isLength({min: 8})
+    check('password').isLength({min: 6})
 ];
 
 router.post('/', validations, async (request, response) => {
-    const data = request.data;
+    const data = request.body;
     try {
         const errors = validationResult(request);
         if (!errors.isEmpty()) {
@@ -23,7 +23,7 @@ router.post('/', validations, async (request, response) => {
     } catch (e) {
         response
             .status(400)
-            .json(e);
+            .json(e.toString());
     }
 });
 

@@ -24,7 +24,7 @@ app.use(express.json({extended: false}));
 /**
  * Routes
  */
-//app.use('/user', require('./services/user/routes/main'));
+app.use('/user', require('./services/user/routes/main'));
 
 /**
  * Application start
