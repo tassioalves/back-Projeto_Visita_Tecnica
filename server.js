@@ -3,8 +3,6 @@ const config = require('config');
 const connectDB = require('./database/connectDB');
 const cors = require('cors');
 
-
-
 const app = express();
 const server = require('http').createServer(app);
 
