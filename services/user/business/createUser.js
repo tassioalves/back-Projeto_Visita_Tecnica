@@ -1,17 +1,28 @@
 const User = require('../model/User');
+const UserTemp = require('../../userTemp/model/UserTemp');
 const error = require('../../../utils/error');
 const bcrypt = require('bcryptjs');
 
-module.exports = async (data) => {
-    let exists = await User.exists({email: data.email});
+module.exports = async (email) => {
 
+    let exists = await User.exists({email: email});
     if (exists) {
         throw await error([{msg: 'Usuário já Cadastrado!'}]);
     }
-    user = new User(data);
 
-    //FAZENDO CRIPTOGRAFIA DA SENHA
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
-    user.save();
+    const userTemp = await UserTemp.findOne({email: email});;
+    if (!userTemp) {
+        throw await error([{msg: 'E-mail nao encontrado na base de dados!'}]);
+    }
+    const newUser = {
+        role: userTemp.role,
+        name: userTemp.name,
+        email: userTemp.email,
+        number: userTemp.number,
+        password: userTemp.password
+    }
+
+    let user = new User(newUser);
+     user.save();
+     userTemp.remove();
 };

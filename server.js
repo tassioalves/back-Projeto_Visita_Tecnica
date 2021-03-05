@@ -3,6 +3,7 @@ const config = require('config');
 const connectDB = require('./database/connectDB');
 const cors = require('cors');
 
+
 const app = express();
 const server = require('http').createServer(app);
 
@@ -22,11 +23,13 @@ app.use(express.json({extended: false}));
 /**
  * Routes
  */
-app.use('/user', require('./services/user/routes/main'));
+app.use('/user', require('./services/userTemp/routes/main'));
+app.use('/confirmation', require('./services/user/routes/main'));
+
 
 /**
  * Application start
  */
 server.listen(PORT, ()=>{
-    console.log('HTTP Server listening');
+    console.log('HTTP Server listening ' + PORT);
 });

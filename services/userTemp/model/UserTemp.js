@@ -17,7 +17,8 @@ const schema = new mongoose.Schema({
     required: true
   },
   number: {
-    type: Number
+    type: Number,
+    required: true,
   },
   email: {
     type: String,
@@ -28,11 +29,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true
   },
-  active: {
-    type: Boolean,
-    required: true,
-    default: true
-  }
 });
 
-module.exports = User = mongoose.model('user', schema);
+module.exports = UserTemp = mongoose.model('userTemp', schema);

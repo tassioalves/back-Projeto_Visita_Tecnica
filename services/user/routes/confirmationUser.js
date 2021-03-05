@@ -9,21 +9,24 @@ const validations = [
     check('password').isLength({min: 6})
 ];
 
-router.post('/', validations, async (request, response) => {
+router.get('/email/:email', async (request, response) => {
     const data = request.body;
+    const email = new String(request.params.email);
     try {
-        const errors = validationResult(request);
-        if (!errors.isEmpty()) {
-            throw await error([{msg: 'Dados Inválidos!'}]);
-        }
-        await createUser(data);
+        // const errors = validationResult(request);
+        // if (!errors.isEmpty()) {
+        //     throw await error([{msg: 'Dados Inválidos!'}]);
+        // }
+        console.log('confirmacao : '+email);
+        await createUser(email);
+        console.log('passou');
         response
             .status(200)
             .send();
     } catch (e) {
         response
             .status(400)
-            .json(e.toString());
+            .send(e);
     }
 });
 
