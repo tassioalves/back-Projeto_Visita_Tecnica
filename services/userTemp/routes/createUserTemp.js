@@ -19,7 +19,8 @@ router.post('/', validations, async (request, response) => {
     }
 
     let emailSplit = data.email.split('@');
-    if (emailSplit[1] !== 'ifms.edu.br' || emailSplit[1] !== 'estudante.ifms.edu.br') {
+    console.log(emailSplit[1]);
+    if (!emailSplit[1] == 'ifms.edu.br' || !emailSplit[1] == 'estudante.ifms.edu.br') {
       throw await error([{ msg: 'Email Inválido!' }]);
     }
 

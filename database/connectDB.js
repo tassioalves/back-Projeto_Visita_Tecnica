@@ -1,7 +1,6 @@
 const config = require('config');
 const mongoose = require('mongoose');
 
-
 module.exports = async () => {
     try {
         const uri = config.get('mongoURI');

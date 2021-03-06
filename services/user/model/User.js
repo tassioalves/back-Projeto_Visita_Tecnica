@@ -32,7 +32,7 @@ const schema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: true
-  }
+  },
 });
 
 module.exports = User = mongoose.model('user', schema);

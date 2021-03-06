@@ -4,12 +4,13 @@ const error = require('../../../utils/error');
 const bcrypt = require('bcryptjs');
 
 module.exports = async (email) => {
-
+    // Verifica a existencia do usuario na tabela permanente
     let exists = await User.exists({email: email});
     if (exists) {
-        throw await error([{msg: 'Usuário já Cadastrado!'}]);
+        throw await error([{msg: 'Você ja confirmou seu cadastro!'}]);
     }
 
+    // Verifica a existencia do usuario na tabela temporaria
     const userTemp = await UserTemp.findOne({email: email});;
     if (!userTemp) {
         throw await error([{msg: 'E-mail nao encontrado na base de dados!'}]);
@@ -23,6 +24,6 @@ module.exports = async (email) => {
     }
 
     let user = new User(newUser);
-     user.save();
-     userTemp.remove();
+    user.save();
+    userTemp.remove();
 };

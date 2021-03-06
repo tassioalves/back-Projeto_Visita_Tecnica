@@ -9,7 +9,7 @@ module.exports = async (data) => {
     if (!user) {
         throw await error([{msg: 'Email ou senha inválidos!'}]);
     }
-    if (!user.action) {
+    if (!user.active) {
         throw await error([{msg: 'Conta Inválida!'}]);
     }
 
