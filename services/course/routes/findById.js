@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const findCourseById = require('../business/findCourseById');
+const findById = require('../business/findById');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
 router.get('/id/:id', servicesAuthenticator, async (request, response)=>{

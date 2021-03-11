@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const createCourse = require('../business/createCourse');
-const error = require('../../../utils/error');
+const create = require('../business/create');
+const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.post('/', async (request, response) => {
+router.post('/', servicesAuthenticator , async (request, response) => {
     const data = request.body;
     try {
-        let course = await createCourse(data);
+        let course = await create(data);
         
         response
             .status(200)
