@@ -4,10 +4,12 @@ const status = require('../enum/status');
 const schema = new mongoose.Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'company',
     required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true
   },
   vacancies: {

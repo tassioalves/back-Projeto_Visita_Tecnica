@@ -5,11 +5,11 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 
 router.get('/id/:id', servicesAuthenticator, async (request, response)=>{
     try{
-        const course = await findById(request.params.id);
+        const discipline = await findById(request.params.id);
 
         response
         .status(200)
-        .send(course)
+        .send(discipline)
     }catch(error){
         response
         .status(400)

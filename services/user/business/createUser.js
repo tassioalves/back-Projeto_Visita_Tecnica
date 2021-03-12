@@ -20,7 +20,8 @@ module.exports = async (email) => {
         name: userTemp.name,
         email: userTemp.email,
         number: userTemp.number,
-        password: userTemp.password
+        password: userTemp.password,
+        course: userTemp.course
     }
 
     let user = new User(newUser);

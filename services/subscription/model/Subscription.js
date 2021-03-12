@@ -4,10 +4,12 @@ const status = require('../enum/status');
 const schema = new mongoose.Schema({
   visit: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'visit',
     required: true
   },
   user: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: 'user',
       required: true
   },
   status: {

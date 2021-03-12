@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const findById = require('../business/findById');
+const update = require('../business/update');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/id/:id', servicesAuthenticator, async (request, response)=>{
+router.put('/', servicesAuthenticator, async (request, response)=>{
     try{
-        const course = await findById(request.params.id);
+        const data = request.body;
+        await update(data);
 
         response
         .status(200)
-        .send(course)
+        .send()
     }catch(error){
         response
         .status(400)

@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const findById = require('../business/findById');
+const remove = require('../business/remove');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/id/:id', servicesAuthenticator, async (request, response)=>{
+router.delete('/id/:id', servicesAuthenticator, async (request, response)=>{
     try{
-        const course = await findById(request.params.id);
+        const id = request.params.id;
+        await remove(id);
 
         response
         .status(200)
-        .send(course)
+        .send()
     }catch(error){
         response
         .status(400)

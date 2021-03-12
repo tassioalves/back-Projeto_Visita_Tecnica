@@ -1,16 +1,15 @@
 const express = require('express');
-const router = express.Router();
-const create = require('../business/create');
+const listAll = require('../business/listAll');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
+const router = express.Router();
 
-router.post('/', servicesAuthenticator , async (request, response) => {
-    const data = request.body;
+router.get('/', servicesAuthenticator, async (request, response) => {
     try {
-        await create(data);
-        
+        const data = await listAll();
+
         response
             .status(200)
-            .send();
+            .send(data);
     } catch (error) {
         response
             .status(400)

@@ -7,10 +7,12 @@ const schema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true,
   },
   visit: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'visit',
     required: true
   },
   active: {

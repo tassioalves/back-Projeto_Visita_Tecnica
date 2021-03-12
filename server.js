@@ -24,11 +24,11 @@ app.use(express.json({extended: false}));
  * Routes
  */
 // app.use('/address', require('./services/address/routes/main'));
-// app.use('/branch', require('./services/branch/routes/main'));
+app.use('/branch', require('./services/branch/routes/main'));
 // app.use('/comment', require('./services/comments/routes/main'));
 // app.use('/company', require('./services/company/routes/main'));
 app.use('/course', require('./services/course/routes/main'));
-// app.use('/discipline', require('./services/discipline/routes/main'));
+app.use('/discipline', require('./services/discipline/routes/main'));
 // app.use('/subscription', require('./services/subscription/routes/main'));
 app.use('/user', require('./services/user/routes/main'));
 app.use('/userTemp', require('./services/userTemp/routes/main'));

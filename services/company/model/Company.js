@@ -39,10 +39,12 @@ const schema = new mongoose.Schema({
   },
   branch: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'branch',
     required: true
   },
   discipline: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: 'discipline',
     required: true
   },
   active: {
