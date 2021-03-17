@@ -22,6 +22,11 @@ const schema = new mongoose.Schema({
     default: status.ABERTA,
     enum: Object.values(status)
   },
+  course:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'course',
+    required: true  
+  },
   date: {
     type: String,
     required: true
