@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const remove = require('../business/remove');
+const listOpenByUserId = require('../business/listOpenByUserId');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 const validationProf = require('../../../middlewares/validationProf');
 
-router.delete('/id/:id', servicesAuthenticator, validationProf, async (request, response) => {
+router.get('/list-by-user', servicesAuthenticator, validationProf, async (request, response) => {
   try {
-    const id = request.params.id;
-    await remove(id, request.user.id);
+    const visits = await listOpenByUserId(request.user.id);
 
     response
       .status(200)
-      .send()
+      .send(visits)
   } catch (error) {
     response
       .status(400)
