@@ -1,7 +1,6 @@
 const User = require('../model/User');
 const UserTemp = require('../../userTemp/model/UserTemp');
 const error = require('../../../utils/error');
-const bcrypt = require('bcryptjs');
 
 module.exports = async (email) => {
     // Verifica a existencia do usuario na tabela permanente
@@ -15,12 +14,14 @@ module.exports = async (email) => {
     if (!userTemp) {
         throw await error([{msg: 'E-mail nao encontrado na base de dados!'}]);
     }
+
     const newUser = {
         role: userTemp.role,
         name: userTemp.name,
         email: userTemp.email,
         number: userTemp.number,
         password: userTemp.password,
+        active: userTemp.active,
         course: userTemp.course
     }
 

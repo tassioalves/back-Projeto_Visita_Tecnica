@@ -7,6 +7,4 @@ module.exports = async (data) =>{
     if(!discipline){
         throw await error([{msg: 'Disciplina não encontrada na base de dados.'}])
     }
-
-    discipline.save();
 }

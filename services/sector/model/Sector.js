@@ -12,4 +12,4 @@ const schema = new mongoose.Schema({
   }
 });
 
-module.exports = Branch = mongoose.model('branch', schema);
+module.exports = Sector = mongoose.model('sector', schema);

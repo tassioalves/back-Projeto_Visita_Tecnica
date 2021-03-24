@@ -14,6 +14,5 @@ module.exports = async (visitId, userId) => {
     }
     
     visit.active = false;
-
     visit.save();
 };

@@ -5,9 +5,10 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 const validationProf = require('../../../middlewares/validationProf');
 
 router.post('/', servicesAuthenticator, validationProf, async (request, response) => {
-    const data = request.body;
     try {
-        await create(request.user.id, data);
+        const data = request.body;
+        const userId = request.user.id;
+        await create(userId, data);
         
         response
             .status(200)

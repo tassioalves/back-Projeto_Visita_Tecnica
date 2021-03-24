@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const findById = require('../business/findById');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
+const validationProf = require('../../../middlewares/validationProf');
 
-router.get('/id/:id', servicesAuthenticator, async (request, response)=>{
+router.get('/id/:id', servicesAuthenticator, validationProf, async (request, response)=>{
     try{
-        const discipline = await findById(request.params.id);
+        const id = request.params.id;
+        const discipline = await findById(id);
 
         response
         .status(200)

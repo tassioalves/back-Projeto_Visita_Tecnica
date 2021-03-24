@@ -1,11 +1,11 @@
 const create = require('./create');
 const listApprovedByVisit = require('./listApprovedByVisit');
 const update = require('./update');
-const listAnalysisByVisit = require('./listInAnalysisByVisit');
+const listInAnalysisByVisit = require('./listInAnalysisByVisit');
 
 module.exports = [
     create,
     update,
     listApprovedByVisit,
-    listAnalysisByVisit
+    listInAnalysisByVisit
 ];

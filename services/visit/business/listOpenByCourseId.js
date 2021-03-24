@@ -1,10 +1,15 @@
 const Visit = require('../model/Visit');
-const Company = require('../../company/model/Company')
-const Course = require('../../course/model/Course');
 const Subscription = require('../../subscription/model/Subscription');
 
-module.exports = async (user) => {
-  const visits = await Visit.find({ course: user.course, active: true, status: 'ABERTA' });
+module.exports = async (user, page, quantityPerPage) => {
+  const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
+                            .populate('company')
+                            .populate('course')
+                            .limit(quantityPerPage)
+                            .skip(quantityPerPage * (page - 1))
+                            .sort({
+                            date: 'asc'
+                            });
 
   if (!visits) {
     return visits;
@@ -13,14 +18,10 @@ module.exports = async (user) => {
   let listVisits = [];
 
   for await (visit of visits) {
-    let company = await Company.findOne({ _id: visit.company, active: true });
-    let course = await Course.findOne({ _id: visit.course, active: true });
-    visit.company = company;
-    visit.course = course;
-
     let subscription = await Subscription.findOne({ visit: visit._id, user: user._id, active: true });
 
     let modelObjVisit;
+
     if (subscription) {
       modelObjVisit = {
         visit: visit,
@@ -35,7 +36,6 @@ module.exports = async (user) => {
 
     listVisits.push(modelObjVisit);
   }
-
 
   return listVisits;
 }

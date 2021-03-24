@@ -3,9 +3,12 @@ const router = express.Router();
 const listApprovedByVisit = require('../business/listApprovedByVisit');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/list-approved/visitId/:visitId', servicesAuthenticator, async (request, response) => {
+router.get('/list-approved/visitId/:visitId/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
   try {
-    const subscriptions = await listApprovedByVisit(request.params.visitId);
+    const visitId = new String(request.params.visitId);
+    const page = new Number(request.params.page);
+    const quantityPerPage = new Number(request.params.quantityPerPage);
+    const subscriptions = await listApprovedByVisit(visitId, page, quantityPerPage);
     
     response
       .status(200)

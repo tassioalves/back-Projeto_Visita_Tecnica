@@ -5,8 +5,8 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 const validationProf = require('../../../middlewares/validationProf');
 
 router.post('/', servicesAuthenticator, validationProf, async (request, response) => {
-    const data = request.body;
     try {
+        const data = request.body;
         await create(data);
         
         response

@@ -6,9 +6,11 @@ const User = require('../model/User');
 
 module.exports = async (data) => {
     let user = await User.findOne({email: data.email});
+
     if (!user) {
         throw await error([{msg: 'Email ou senha inválidos!'}]);
     }
+    
     if (!user.active) {
         throw await error([{msg: 'Conta Inválida!'}]);
     }

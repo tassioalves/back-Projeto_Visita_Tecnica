@@ -6,8 +6,9 @@ const validationProf = require('../../../middlewares/validationProf');
 
 router.delete('/id/:id', servicesAuthenticator, validationProf, async (request, response) => {
   try {
-    const id = request.params.id;
-    await remove(id, request.user.id);
+    const visitId = request.params.id;
+    const userId = request.user.id;
+    await remove(visitId, userId);
 
     response
       .status(200)

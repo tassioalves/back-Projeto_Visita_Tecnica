@@ -1,11 +1,11 @@
-const Branch = require('../model/Branch');
+const Sector = require('../model/Sector');
 const error = require('../../../utils/error');
 
 
 module.exports = async (id) => {
-    const branch = await Branch.findOne({_id: id, active: true});
+    const sector = await Sector.findOne({_id: id, active: true});
 
-    if (!branch) {
+    if (!sector) {
         throw await error([{msg: 'Ramo não encontrado!'}]);
     }
 
@@ -13,7 +13,7 @@ module.exports = async (id) => {
     //     throw await error([{msg: 'Usuario não autorizado!'}]);
     // }
 
-    branch.active = false;
+    sector.active = false;
 
-    branch.save();
+    sector.save();
 };

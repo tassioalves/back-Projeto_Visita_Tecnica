@@ -9,11 +9,6 @@ module.exports = async (id) => {
         throw await error([{msg: 'Disciplina não encontrada!'}]);
     }
 
-    // if (userId != device.userId) {
-    //     throw await error([{msg: 'Usuario não autorizado!'}]);
-    // }
-
     discipline.active = false;
-
     discipline.save();
 };

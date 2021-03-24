@@ -8,8 +8,7 @@ module.exports = async (id) => {
 		throw await error([{ msg: 'Empresa não encontrada na base de dados.' }])
 	}
 
-	let encodedImage = company.img.replace("data:image/jpeg;base64,", "").replace("data:image/png;base64,", "");
-	let decodedImage = new Buffer(encodedImage, "base64");
+	let decodedImage = new Buffer(company.img, "base64");
 
 	return decodedImage;
 }

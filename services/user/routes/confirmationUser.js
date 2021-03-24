@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const createUser = require('../business/createUser');
-const error = require('../../../utils/error');
+const confirmationUser = require('../business/confirmationUser');
 
-router.get('/email/:email', async (request, response) => {
-    const data = request.body;
-    const email = new String(request.params.email);
+router.get('confirmation/email/:email', async (request, response) => {
     try {
-        await createUser(email);
+        const email = new String(request.params.email);
+        await confirmationUser(email);
         
         response
             .status(200)

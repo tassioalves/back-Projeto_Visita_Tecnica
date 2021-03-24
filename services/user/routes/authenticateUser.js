@@ -15,8 +15,9 @@ router.post('/authenticate', validations, async (request, response) => {
         if (!errors.isEmpty()) {
             throw await error([{msg: 'Dados Inválidos!'}]);
         }
-		console.log(request.body);
-        const credentials = await authenticateUser(request.body);
+
+        const data = request.user;
+        const credentials = await authenticateUser(data);
         response
             .status(200)
             .json(credentials);

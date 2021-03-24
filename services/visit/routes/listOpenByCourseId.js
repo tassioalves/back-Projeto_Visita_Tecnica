@@ -3,9 +3,12 @@ const router = express.Router();
 const listOpenByCourseId = require('../business/listOpenByCourseId');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/list-by-course', servicesAuthenticator, async (request, response) => {
+router.get('/list-by-course/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
   try {
-    const visits = await listOpenByCourseId(request.user);
+    const user = request.user;
+    const page = new Number(request.params.page);
+    const quantityPerPage = new Number(request.params.quantityPerPage);
+    const visits = await listOpenByCourseId(user, page, quantityPerPage);
 
     response
       .status(200)

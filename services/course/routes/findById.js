@@ -5,7 +5,8 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 
 router.get('/id/:id', servicesAuthenticator, async (request, response)=>{
     try{
-        const course = await findById(request.params.id);
+        const id = request.params.id;
+        const course = await findById(id);
 
         response
         .status(200)

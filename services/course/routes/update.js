@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 const update = require('../business/update');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
+const validationProf = require('../../../middlewares/validationProf');
 
-router.put('/', servicesAuthenticator, async (request, response)=>{
+router.put('/', servicesAuthenticator, validationProf, async (request, response)=>{
     try{
         const data = request.body;
-        const course = await update(data);
+        await update(data);
 
         response
         .status(200)
-        .send(course)
+        .send()
     }catch(error){
         response
         .status(400)

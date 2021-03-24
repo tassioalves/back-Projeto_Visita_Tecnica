@@ -23,7 +23,7 @@ app.use(express.json({extended: false}));
 /**
  * Routes
  */
-app.use('/branch', require('./services/branch/routes/main'));
+app.use('/sector', require('./services/sector/routes/main'));
 // app.use('/comment', require('./services/comments/routes/main'));
 app.use('/company', require('./services/company/routes/main'));
 app.use('/course', require('./services/course/routes/main'));

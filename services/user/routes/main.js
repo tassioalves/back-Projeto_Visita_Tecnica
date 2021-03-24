@@ -1,9 +1,11 @@
 const confirmationUser = require('./confirmationUser');
 const authenticateUser = require('./authenticateUser');
-const removeUser = require('./removeUser');
+const remove = require('./remove');
+const create = require('./create');
 
 module.exports = [
     confirmationUser,
     authenticateUser,
-    removeUser
+    remove,
+    create
 ];

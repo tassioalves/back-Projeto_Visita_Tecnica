@@ -7,6 +7,4 @@ module.exports = async (data) =>{
     if(!company){
         throw await error([{msg: 'Empresa não encontrada na base de dados.'}])
     }
-
-    return company;
 }

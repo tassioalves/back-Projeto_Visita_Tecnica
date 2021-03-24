@@ -3,6 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const createUserTemp = require('../business/createUserTemp');
 const sendEmail = require('../business/sendEmail');
+const validationEmail = require('../../../middlewares/validationEmail');
 const error = require('../../../utils/error');
 
 const validations = [
@@ -10,20 +11,14 @@ const validations = [
   check('password').isLength({ min: 6 })
 ];
 
-router.post('/', validations, async (request, response) => {
-  const data = request.body;
+router.post('/', validations, validationEmail, async (request, response) => {
   try {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
       throw await error([{ msg: 'Dados Inválidos!' }]);
     }
 
-    let emailSplit = data.email.split('@');
-    console.log(emailSplit[1]);
-    if (!emailSplit[1] == 'ifms.edu.br' || !emailSplit[1] == 'estudante.ifms.edu.br') {
-      throw await error([{ msg: 'Email Inválido!' }]);
-    }
-
+    const data = request.body;
     await createUserTemp(data);
     await sendEmail(data.email);
 

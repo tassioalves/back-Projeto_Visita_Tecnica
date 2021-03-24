@@ -21,11 +21,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: true
   },
-  district: {
-    type: String,
-    required: true
-  },
-  street: {             //rua, logradouro
+  address: {
     type: String,
     required: true
   },
@@ -33,20 +29,15 @@ const schema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  complement: {
-    type: String,
-    required: false
-  },
-  branch: {
+  sector: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'branch',
+    ref: 'sector',
     required: true
   },
-  discipline: {
+  discipline: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'discipline',
-    required: true
-  },
+    required: true}],
   active: {
     type: Boolean,
     required: true,

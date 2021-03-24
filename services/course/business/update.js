@@ -8,5 +8,4 @@ module.exports = async (data) =>{
         throw await error([{msg: 'Curso não encontrado na base de dados.'}])
     }
 
-    return course;
 }

@@ -10,6 +10,5 @@ module.exports = async (id) => {
     }
 
     company.active = false;
-
     company.save();
 };

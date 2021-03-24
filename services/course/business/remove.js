@@ -9,11 +9,6 @@ module.exports = async (id) => {
         throw await error([{msg: 'Curso não encontrado!'}]);
     }
 
-    // if (userId != device.userId) {
-    //     throw await error([{msg: 'Usuario não autorizado!'}]);
-    // }
-
     course.active = false;
-
     course.save();
 };
