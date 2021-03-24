@@ -3,7 +3,7 @@ const router = express.Router();
 const findLogoByCompanyId = require('../business/findLogoByCompanyId');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/id/:id/logo',servicesAuthenticator, async (request, response) => {
+router.get('/id/:id/logo',async (request, response) => {
 	try {
 		const id = request.params.id;
 		const logo = await findLogoByCompanyId(id);

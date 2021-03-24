@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: true
+    required: false
   },
   number: {
     type: Number,
