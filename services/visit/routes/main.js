@@ -1,13 +1,15 @@
 const create = require('./create');
-const listOpenByUserId = require('./listOpenByUserId');
+const listOpenByUserProfId = require('./listOpenByUserProfId');
 const listOpenByCourseId = require('./listOpenByCourseId');
+const listClosedByUserProfId = require('./listClosedByUserProfId');
 const update = require('./update');
 const remove = require('./remove');
 
 module.exports = [
     create,
-    listOpenByUserId,
+    listOpenByUserProfId,
     listOpenByCourseId,
+    listClosedByUserProfId,
     update,
     remove
 ];

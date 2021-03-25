@@ -3,7 +3,6 @@ const router = express.Router();
 const listAll = require('../business/listAll');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-
 router.get('/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
 	try {
 		const page = new Number(request.params.page);

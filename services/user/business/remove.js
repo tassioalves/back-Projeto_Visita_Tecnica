@@ -16,7 +16,7 @@ module.exports = async (id, user) => {
         throw await error([{msg: 'Usuario não autorizado.'}]);
     } else if (user.role === userDelete.role) {
         throw await error([{msg: 'Usuario não autorizado.'}]);
-    } else{
+    } else {
         userDelete.active = false
         userDelete.save();
     }

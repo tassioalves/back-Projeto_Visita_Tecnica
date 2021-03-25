@@ -3,7 +3,9 @@ const Subscription = require('../../subscription/model/Subscription');
 
 module.exports = async (user, page, quantityPerPage) => {
   const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
-                            .populate('company')
+                            .populate({
+                              path: 'company',
+                              select: '-img'})
                             .populate('course')
                             .limit(quantityPerPage)
                             .skip(quantityPerPage * (page - 1))

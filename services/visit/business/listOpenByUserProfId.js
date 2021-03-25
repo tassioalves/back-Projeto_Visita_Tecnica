@@ -2,7 +2,9 @@ const Visit = require('../model/Visit');
 
 module.exports = async (userId, page, quantityPerPage) => {
 	const visits = await Visit.find({ user: userId, status: 'ABERTA', active: true })
-								.populate('company')
+								.populate({
+									path: 'company',
+									select: '-img'})
 								.populate('course')
 								.limit(quantityPerPage)
 								.skip(quantityPerPage * (page - 1))
