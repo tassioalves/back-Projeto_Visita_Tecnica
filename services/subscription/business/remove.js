@@ -8,7 +8,7 @@ module.exports = async (id, userId) => {
         throw await error([{msg: 'Inscrição não localizada!'}]);
     }
 
-    if (userId != device.userId) {
+    if (userId != subscription.user) {
         throw await error([{msg: 'Usuario não autorizado!'}]);
     }
 

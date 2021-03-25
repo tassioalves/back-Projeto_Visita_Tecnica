@@ -1,19 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const listOpenByCourseId = require('../business/listOpenByCourseId');
+const listUserVisits = require('../business/listUserVisits')
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 
-router.get('/list-by-course/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
+router.get('/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
   try {
-    console.log(request.user);
-    const user = request.user;
     const page = new Number(request.params.page);
     const quantityPerPage = new Number(request.params.quantityPerPage);
-    const visits = await listOpenByCourseId(user, page, quantityPerPage);
+    const subscriptions = await listUserVisits(request.user._id, page, quantityPerPage);
 
     response
       .status(200)
-      .send(visits)
+      .send(subscriptions)
   } catch (error) {
     response
       .status(400)
