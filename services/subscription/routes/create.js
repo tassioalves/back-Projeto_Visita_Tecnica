@@ -4,7 +4,7 @@ const create = require('../business/create');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 const validationProf = require('../../../middlewares/validationProf');
 
-router.post('/', servicesAuthenticator, validationProf, async (request, response) => {
+router.post('/', servicesAuthenticator, async (request, response) => {
     try {
         const data = request.body;
         await create(request.user, data);
@@ -13,6 +13,7 @@ router.post('/', servicesAuthenticator, validationProf, async (request, response
             .status(200)
             .send();
     } catch (error) {
+        console.log(error)
         response
             .status(400)
             .send(error);

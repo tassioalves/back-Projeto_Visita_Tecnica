@@ -1,5 +1,6 @@
 const Visit = require('../model/Visit');
 const Subscription = require('../../subscription/model/Subscription');
+const status = require('../../subscription/enum/status');
 
 module.exports = async (user, page, quantityPerPage) => {
   const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
@@ -34,7 +35,7 @@ module.exports = async (user, page, quantityPerPage) => {
     } else {
       modelObjVisit = {
         visit: visit,
-        statusSubscription: false
+        statusSubscription: status.NAO_INSCRITO
       }
     }
 
