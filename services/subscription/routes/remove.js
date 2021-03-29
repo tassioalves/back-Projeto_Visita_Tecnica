@@ -4,7 +4,7 @@ const remove = require('../business/remove');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
 const validationProf = require('../../../middlewares/validationProf');
 
-router.delete('/id/:id', servicesAuthenticator, validationProf, async (request, response)=>{
+router.delete('/id/:id', servicesAuthenticator, async (request, response)=>{
     try{
         const id = request.params.id;
         const userId = request.user.id;

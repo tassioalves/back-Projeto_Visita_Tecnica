@@ -10,6 +10,5 @@ module.exports = async (user, data) => {
     }
     data.user = user;
     let subscription = new Subscription(data);
-    console.log(subscription);
-    subscription.save();
+    await subscription.save();
 };
