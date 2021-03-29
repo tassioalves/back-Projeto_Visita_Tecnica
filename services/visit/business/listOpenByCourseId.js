@@ -30,7 +30,8 @@ module.exports = async (user, page, quantityPerPage) => {
     if (subscription) {
       modelObjVisit = {
         visit: visit,
-        statusSubscription: subscription.status
+        statusSubscription: subscription.status,
+        subscription: subscription
       }
     } else {
       modelObjVisit = {
