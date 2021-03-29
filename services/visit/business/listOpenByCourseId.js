@@ -5,7 +5,9 @@ module.exports = async (user, page, quantityPerPage) => {
   const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
                             .populate({
                               path: 'company',
-                              select: '-img'})
+                              select: ['-img'],
+                              populate: ['sector','discipline']
+                            })
                             .populate('course')
                             .limit(quantityPerPage)
                             .skip(quantityPerPage * (page - 1))
