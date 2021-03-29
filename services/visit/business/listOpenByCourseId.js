@@ -1,11 +1,14 @@
 const Visit = require('../model/Visit');
 const Subscription = require('../../subscription/model/Subscription');
+const status = require('../../subscription/enum/status');
 
 module.exports = async (user, page, quantityPerPage) => {
   const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
                             .populate({
                               path: 'company',
-                              select: '-img'})
+                              select: ['-img'],
+                              populate: ['sector','discipline']
+                            })
                             .populate('course')
                             .limit(quantityPerPage)
                             .skip(quantityPerPage * (page - 1))
@@ -27,12 +30,13 @@ module.exports = async (user, page, quantityPerPage) => {
     if (subscription) {
       modelObjVisit = {
         visit: visit,
-        statusSubscription: subscription.status
+        statusSubscription: subscription.status,
+        subscription: subscription
       }
     } else {
       modelObjVisit = {
         visit: visit,
-        statusSubscription: false
+        statusSubscription: status.NAO_INSCRITO
       }
     }
 

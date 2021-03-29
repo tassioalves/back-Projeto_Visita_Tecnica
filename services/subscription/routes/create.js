@@ -6,12 +6,13 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 router.post('/', servicesAuthenticator, async (request, response) => {
     try {
         const data = request.body;
-        await create(request.user, data);
+        const subscription = await create(request.user, data);
 
         response
             .status(200)
-            .send();
+            .send(subscription);
     } catch (error) {
+        console.log(error)
         response
             .status(400)
             .send(error);

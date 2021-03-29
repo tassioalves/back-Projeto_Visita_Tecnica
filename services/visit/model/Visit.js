@@ -25,18 +25,18 @@ const schema = new mongoose.Schema({
   course:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'course',
-    required: true  
+    required: true
   },
   date: {
-    type: String,
+    type: Date,
     required: true
   },
   timeToLeave: {
-    type: String,
+    type: Date,
     required: true,
   },
   timeToArrive: {
-    type: String,
+    type: Date,
     required: true,
   },
   active: {

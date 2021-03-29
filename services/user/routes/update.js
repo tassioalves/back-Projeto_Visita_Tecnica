@@ -5,8 +5,9 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 
 router.put('/', servicesAuthenticator, async (request, response)=>{
     try{
+        const user = request.user;
         const data = request.body;
-        await update(data);
+        await update(user, data);
 
         response
         .status(200)

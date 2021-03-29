@@ -7,9 +7,8 @@ module.exports = async (user, data) => {
     if(exists){
         throw await error([{msg: 'Inscrição ja em andamento'}]);
     }
-
+    data.user = user;
     let subscription = new Subscription(data);
-    subscription.user = user;
-
-    subscription.save();
+    await subscription.save();
+    return subscription;
 };
