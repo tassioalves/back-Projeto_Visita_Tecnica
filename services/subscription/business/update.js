@@ -2,12 +2,12 @@ const Subscription = require('../model/Subscription');
 const Visit = require('../../visit/model/Visit');
 const error = require('../../../utils/error');
 
-module.exports = async (data, userId) => {
+module.exports = async (data) => {
   const subscr = await Subscription.findById({_id: data._id, active: true});
 
-  if (subscr.user != userId) {
-    throw await error([{ msg: 'Usuario nao autorizado.' }]);
-  }
+  // if (subscr.user != userId) {
+  //   throw await error([{ msg: 'Usuario nao autorizado.' }]);
+  // }
 
   const subscription = await Subscription.findByIdAndUpdate(data._id, data, { new: true });
 

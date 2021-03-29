@@ -15,11 +15,6 @@ module.exports = async (userId, page, quantityPerPage) => {
         }
     }
 
-    const populateUser = {
-        path:'user',
-        select:'name'
-    }
-
     const sort ={
         date: 'asc'
     }
@@ -27,7 +22,6 @@ module.exports = async (userId, page, quantityPerPage) => {
     const subscriptions =
         await Subscription.find(filter)
             .populate(populateVisitAndCompany)
-            .populate(populateUser)
             .limit(quantityPerPage)
             .skip(quantityPerPage * (page - 1))
             .sort(sort);

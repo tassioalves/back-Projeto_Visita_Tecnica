@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const create = require('../business/create');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
-const validationProf = require('../../../middlewares/validationProf');
 
-router.post('/', servicesAuthenticator, validationProf, async (request, response) => {
+router.post('/', servicesAuthenticator, async (request, response) => {
     try {
         const data = request.body;
         await create(request.user, data);

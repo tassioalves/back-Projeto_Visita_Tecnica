@@ -1,7 +1,7 @@
 const Visit = require('../model/Visit');
 const error = require('../../../utils/error');
 
-module.exports = async (userId, data) => {
+module.exports = async (user, data) => {
     // let exists = await Visit.exists({company: data.company, date: data.date, active: true});
 
     // if(exists){
