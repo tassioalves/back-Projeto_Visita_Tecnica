@@ -11,4 +11,5 @@ module.exports = async (user, data) => {
     data.user = user;
     let subscription = new Subscription(data);
     await subscription.save();
+    return subscription;
 };
