@@ -7,7 +7,6 @@ module.exports = async (request, response, next) => {
     const token = request.header('x-auth-token');
 
     try {
-        console.log('TOKEN' + token);
         if (!token) {
             throw await error([{msg: 'Token Invállido!'}]);
         }
