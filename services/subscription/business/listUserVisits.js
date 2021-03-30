@@ -3,7 +3,8 @@ const Subscription = require('../model/Subscription');
 module.exports = async (userId, page, quantityPerPage) => {
     const filter = {
         active: true,
-        user: userId
+        user: userId,
+        status: 'APROVADA'
     }
 
     const populateVisitAndCompany = {
