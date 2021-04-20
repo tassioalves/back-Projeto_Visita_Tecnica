@@ -34,6 +34,10 @@ const schema = new mongoose.Schema({
     ref: 'sector',
     required: true
   },
+  course: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'course',
+    required: true}],
   discipline: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'discipline',

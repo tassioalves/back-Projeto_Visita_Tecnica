@@ -18,6 +18,11 @@ const schema = new mongoose.Schema({
     default: status.EM_ANALISE,
     enum: Object.values(status)
   },
+  assessment: {
+    type: Number,
+    required: true,
+    default: 0
+  },
   active: {
     type: Boolean,
     required: true,

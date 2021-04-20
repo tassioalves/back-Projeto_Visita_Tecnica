@@ -4,6 +4,7 @@ const remove = require('./remove');
 const listAll = require('./listAll');
 const findById = require('./findById');
 const findLogoByCompanyId = require('./findLogoByCompanyId')
+const listByCourseId = require('./listByCourseId');
 
 module.exports = [
     create,
@@ -11,5 +12,6 @@ module.exports = [
     remove,
     listAll,
     findById,
-    findLogoByCompanyId
+    findLogoByCompanyId,
+    listByCourseId
 ];
