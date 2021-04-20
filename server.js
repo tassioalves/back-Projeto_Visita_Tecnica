@@ -24,7 +24,7 @@ app.use(express.json({extended: false}));
  * Routes
  */
 app.use('/sector', require('./services/sector/routes/main'));
-// app.use('/comment', require('./services/comments/routes/main'));
+app.use('/comment', require('./services/comment/routes/main'));
 app.use('/company', require('./services/company/routes/main'));
 app.use('/course', require('./services/course/routes/main'));
 app.use('/discipline', require('./services/discipline/routes/main'));

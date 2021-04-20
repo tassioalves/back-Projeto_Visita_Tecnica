@@ -1,13 +1,11 @@
-const listAll = require('./listAll');
 const create = require('./create');
-const findById = require('./findById');
 const update = require('./update');
 const remove = require('./remove');
+const listByVisitId = require('./listByVisitId');
 
 module.exports = [
-    listAll,
     create,
-    findById,
     update,
-    remove
+    remove,
+    listByVisitId
 ];

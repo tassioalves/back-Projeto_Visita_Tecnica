@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const update = require('../business/update');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
-const validationProf = require('../../../middlewares/validationProf');
 
-router.put('/', servicesAuthenticator, validationProf, async (request, response)=>{
+router.put('/', servicesAuthenticator, async (request, response)=>{
     try{
         const data = request.body;
-        await update(data);
+        const userId = request.user.id;
+        await update(data, userId);
 
         response
         .status(200)
