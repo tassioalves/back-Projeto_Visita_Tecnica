@@ -1,4 +1,4 @@
 module.exports = {
     'ABERTA': 'ABERTA',
-    'FINALIZADA' : 'FINALIZADA'
+    'FINALIZADA' : 'FINALIZADA',
 };
