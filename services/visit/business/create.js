@@ -10,5 +10,6 @@ module.exports = async (user, data) => {
 
     let visit = new Visit(data);
     visit.user = user;
+    visit.course = user.course;
     visit.save();
 };
