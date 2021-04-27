@@ -21,7 +21,7 @@ module.exports = async (userId, page, quantityPerPage) => {
     }
 
     const subscriptions =
-        await Subscription.find(filter)
+        await Subscription.find(filter,{active:0, __v:0})
             .populate(populateVisitAndCompany)
             .limit(quantityPerPage)
             .skip(quantityPerPage * (page - 1))
@@ -30,6 +30,5 @@ module.exports = async (userId, page, quantityPerPage) => {
     if (!subscriptions) {
         return subscriptions;
     }
-
     return subscriptions;
 }
