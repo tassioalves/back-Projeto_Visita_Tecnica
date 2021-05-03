@@ -10,8 +10,10 @@ module.exports = async (user, data) => {
     }
 
     data.user = user;
+    delete data["_id"];
     let subscription = new Subscription(data);
     subscription.status = status.EM_ANALISE;
-    await subscription.save();
-    return subscription;
+    const subscriptionSaved = await subscription.save();
+    console.log(data);
+    return subscriptionSaved;
 };

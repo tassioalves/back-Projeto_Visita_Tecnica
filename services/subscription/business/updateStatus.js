@@ -27,6 +27,7 @@ module.exports = async (data, userId) =>{
         status = statusEnum.RECUSADA
     }
     subscription.status = status;
+    console.log(subscription);
     await subscription.save();
 
     return subscription;

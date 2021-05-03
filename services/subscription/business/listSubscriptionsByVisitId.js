@@ -3,7 +3,7 @@ const User = require('../../user/model/User')
 
 module.exports = async (visitId, page, quantityPerPage) => {
     const subscriptions = await Subscription.find({ visit: visitId, active: true },
-                                                    {visit:0, active:0, __v:0})
+                                                    {active:0, __v:0})
                                             .populate({
                                                 path:'user',
                                                 select:['name'],
