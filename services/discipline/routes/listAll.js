@@ -7,7 +7,8 @@ router.get('/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator
     try {
         const page = new Number(request.params.page);
         const quantityPerPage = new Number(request.params.quantityPerPage);
-		const data = await listAll(page, quantityPerPage);
+        const user = request.user;
+		const data = await listAll(user,page, quantityPerPage);
 
         response
             .status(200)
