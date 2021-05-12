@@ -1,6 +1,7 @@
 const Visit = require('../model/Visit');
 const Subscription = require('../../subscription/model/Subscription');
 const status = require('../../subscription/enum/status');
+const readyToFinalize = require('../business/readyToFinalize');
 
 module.exports = async (user, page, quantityPerPage) => {
   const visits = await Visit.find({ course: user.course, status: 'ABERTA', active: true })
@@ -39,7 +40,8 @@ module.exports = async (user, page, quantityPerPage) => {
         statusSubscription: status.NAO_INSCRITO
       }
     }
-
+    modelObjVisit.readyToFinalize = await readyToFinalize(visit);
+    modelObjVisit.authorizedToEdit = visit.user._id.equals(user._id);
     listVisits.push(modelObjVisit);
   }
 

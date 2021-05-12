@@ -4,6 +4,7 @@ const listOpenByCourseId = require('./listOpenByCourseId');
 const listClosedByUserProfId = require('./listClosedByUserProfId');
 const update = require('./update');
 const remove = require('./remove');
+const finalize = require('./finalize');
 const alterStatusVisit = require('./alterStatusVisit');
 
 module.exports = [
@@ -13,5 +14,6 @@ module.exports = [
     listClosedByUserProfId,
     update,
     remove,
+    finalize,
     alterStatusVisit
 ];

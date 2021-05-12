@@ -6,10 +6,10 @@ const validationProf = require('../../../middlewares/validationProf');
 
 router.get('/list-closed-prof/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, validationProf, async (request, response) => {
   try {
-    const userId = request.user.id;
+    const user = request.user;
     const page = new Number(request.params.page);
     const quantityPerPage = new Number(request.params.quantityPerPage);
-    const visits = await listClosedByUserProfId(userId, page, quantityPerPage);
+    const visits = await listClosedByUserProfId(user, page, quantityPerPage);
 
     response
       .status(200)

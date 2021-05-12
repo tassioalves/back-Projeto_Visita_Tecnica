@@ -1,4 +1,4 @@
-const express = require('express');
+const express =   require('express');
 const router = express.Router();
 const listOpenByCourseId = require('../business/listOpenByCourseId');
 const servicesAuthenticator = require('../../../middlewares/servicesAuthenticator');
