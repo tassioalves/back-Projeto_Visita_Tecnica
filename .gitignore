@@ -1,8 +1,7 @@
 # dependencies
 node_modules
 
-# Config
-config
+
 
 # logs
 npm-debug.log
@@ -21,4 +20,6 @@ build
 
 .DS_Store
 package-lock.json
+
+config
 
