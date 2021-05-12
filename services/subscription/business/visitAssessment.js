@@ -17,7 +17,6 @@ module.exports = async (data) => {
   if (!subscription) {
     throw await error([{msg: 'Inscrição não encontrada na base de dados.'}]);
   }
-
   return subscription;
 
 }

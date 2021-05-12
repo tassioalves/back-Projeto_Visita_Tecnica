@@ -24,7 +24,6 @@ const schema = new mongoose.Schema({
   },
   assessment: {
     type: Number,
-    required: true,
     default: 0
   },
   active: {

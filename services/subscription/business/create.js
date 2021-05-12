@@ -13,7 +13,7 @@ module.exports = async (user, data) => {
     delete data["_id"];
     let subscription = new Subscription(data);
     subscription.status = status.EM_ANALISE;
+    subscription.assessment = 0;
     const subscriptionSaved = await subscription.save();
-    console.log(data);
     return subscriptionSaved;
 };

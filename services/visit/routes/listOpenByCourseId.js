@@ -5,7 +5,6 @@ const servicesAuthenticator = require('../../../middlewares/servicesAuthenticato
 
 router.get('/list-by-course/page/:page/quantityPerPage/:quantityPerPage', servicesAuthenticator, async (request, response) => {
   try {
-    console.log(request.user);
     const user = request.user;
     const page = new Number(request.params.page);
     const quantityPerPage = new Number(request.params.quantityPerPage);
