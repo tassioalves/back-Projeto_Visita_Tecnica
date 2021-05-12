@@ -8,6 +8,7 @@ const remove = require('./remove');
 const visitAssesment = require('./visitAssessment');
 const updateStatus = require('./updateStatus');
 const updatePresence = require('./updatePresence');
+const generateCertificate = require('./generateCertificate');
 
 module.exports = [
     create,
@@ -19,5 +20,6 @@ module.exports = [
     listInAnalysisByVisit,
     listSubscriptionByVisitId,
     listUserVisits,
-    visitAssesment
+    visitAssesment,
+    generateCertificate
 ];
