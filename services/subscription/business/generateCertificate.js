@@ -29,7 +29,7 @@ function generatePDF(user,subscription){
     const company = visit.company;
     const doc = new PDFDocument();
     const visitDate = new Date(visit.date);
-    let visitDateFormatted = visitDate.getDate()+1;
+    let visitDateFormatted = visitDate.getDate();
     visitDateFormatted += '/'+(visitDate.getMonth()+1);
     visitDateFormatted += '/'+visitDate.getFullYear();
 
@@ -52,7 +52,7 @@ function generatePDF(user,subscription){
     doc.moveDown();
 
     const today = new Date();
-    const locationText = `Coxim - MS, ${(today.getDate()+1)} de ${today.getMonth()} de ${today.getFullYear()}.`
+    const locationText = `Coxim - MS, ${(today.getDate())} de ${today.getMonth()+1} de ${today.getFullYear()}.`
     doc.text(locationText,{align: 'right'});
     doc.moveDown();
     doc.moveDown();
