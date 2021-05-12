@@ -2,10 +2,14 @@
 node_modules
 
 # Config
-config/default.json
+config/*
 
 # logs
 npm-debug.log
+
+
+
+
 
 # Nuxt build
 .nuxt
