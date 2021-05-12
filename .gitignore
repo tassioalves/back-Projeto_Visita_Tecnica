@@ -19,4 +19,4 @@ build
 package-lock.json
 
 # Config
-default.json
+config/default.json
