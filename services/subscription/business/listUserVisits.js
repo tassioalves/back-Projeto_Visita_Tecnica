@@ -11,11 +11,14 @@ module.exports = async (userId, page, quantityPerPage) => {
 
     const populateVisitAndCompany = {
         path:'visit',
-        populate:{
+        populate:[{
             path:'company',
             select:['name','city','state'],
             populate:'sector'
-        }
+        },{
+            path: 'user',
+            select:['name']
+        }]
     }
 
     const sort ={
@@ -38,5 +41,6 @@ module.exports = async (userId, page, quantityPerPage) => {
     if (!subscriptions) {
         return subscriptions;
     }
+
     return subscriptions;
 }
